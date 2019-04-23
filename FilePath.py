@@ -1,38 +1,22 @@
 import os
 import WriteOutput as wo
 
-fileDict = {}
-pathDict = {}
+candidates = {}
 
 def GetFilePaths(searchDir):
-
-	for dirpath, dirnames, filenames in os.walk(searchDir):
-		
+	for dirpath, dirnames, filenames in os.walk(searchDir):	
 		for file in filenames:
 			fullpath = os.path.normpath(os.path.join(dirpath, file))
-
-			if file not in pathDict:
-				pathDict[file] = [fullpath]
+			print("file found here! fullpath: "+fullpath+'\n')
+			if file not in candidates:
+				candidates[file] = [fullpath]
 			else:
-				pathDict[file].append(fullpath)
-	
-	for key in list(pathDict):
-		if len(pathDict[key]) < 2:
-			pathDict.pop(key,None)
-	
-	return pathDict
-
-
-def GetFileExtension(searchDir):
-	
-	for dirpath, dirnames, filenames in os.walk(searchDir):
-		
-		for file in filenames:
-			fileName, fileExt = os.path.splitext(file)
-			
-			if fileExt not in fileDict:
-				fileDict[fileExt] = [file]
-			else:
-				fileDict[fileExt].append(file)
-	
-	return fileDict
+				candidates[file].append(fullpath)
+	print('\n')
+	for key in list(candidates):
+		if len(candidates[key]) < 2:
+			candidates.pop(key,None)
+		else:
+			print("candidate file: "+key+'\n')
+	print('\n')
+	return candidates

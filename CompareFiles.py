@@ -24,18 +24,19 @@ def CompFiles(FileDicData):
 				else:
 					duplicates[file1Hash] = [path1]
 					duplicates[file2Hash].append(path2)
-
+				print("find duplicate! writing output...")
+	print('\n')
 	return duplicates
 
 def hashfile(path, blocksize = 65536):
     
-    afile = open(path, 'rb')
-    hasher = hashlib.md5()
-    buf = afile.read(blocksize)
+	afile = open(path, 'rb')
+	hasher = hashlib.md5()
+	buf = afile.read(blocksize)
     
-    while len(buf) > 0:
-        hasher.update(buf)
-        buf = afile.read(blocksize)
-    afile.close()
+	while len(buf) > 0:
+		hasher.update(buf)
+		buf = afile.read(blocksize)
+	afile.close()
     
-    return hasher.hexdigest()
+	return hasher.hexdigest()
