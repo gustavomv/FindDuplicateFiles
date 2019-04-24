@@ -24,7 +24,7 @@ def CompFiles(FileDicData):
 					else:
 						duplicates[file1Hash+fileName] = [path1]
 						duplicates[file2Hash+fileName].append(path2)
-					print("find duplicate! writing output...")
+					print("find duplicate!\n")
 	print('\n')
 	return duplicates
 

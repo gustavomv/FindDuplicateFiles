@@ -21,5 +21,7 @@ def SetOutp(OutputName, Dict):
 				nextPath = True
 			else:
 				nextPath = False
+			print("Writing Output...\n")
 			WriteText(OutputName, fullPath, nextPath)
 			j -= 1
+	print('\n')
