@@ -2,7 +2,7 @@ import FilePath as fp
 import CompareFiles as cp
 import WriteOutput as wo
 
-initPath = input("Digite o caminho inicial de busca: ")
+initPath = input("Enter the initial search path: ")
 cands = fp.GetFilePaths(r"%s" %initPath)
 dups = cp.CompFiles(cands)
 
