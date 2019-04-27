@@ -4,7 +4,7 @@ import WriteOutput as wo
 candidates = {}
 
 def GetFilePaths(searchDir):
-	for dirpath, dirnames, filenames in os.walk(searchDir, onerror=ErrorCall()):	
+	for dirpath, dirnames, filenames in os.walk(searchDir):	
 		for file in filenames:
 			fullpath = os.path.normpath(os.path.join(dirpath, file))
 			print("file found here! fullpath: "+fullpath+'\n')
